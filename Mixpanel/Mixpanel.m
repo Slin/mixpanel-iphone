@@ -1119,13 +1119,13 @@ static NSString *defaultProjectToken;
 
 - (void)setCurrentRadio
 {
-/*    dispatch_async(self.serialQueue, ^{
+    dispatch_async(self.serialQueue, ^{
         NSMutableDictionary *properties = [self.automaticProperties mutableCopy];
         if (properties) {
             properties[@"$radio"] = [self currentRadio];
             self.automaticProperties = [properties copy];
         }
-    });*/
+    });
 }
 
 - (NSString *)currentRadio
