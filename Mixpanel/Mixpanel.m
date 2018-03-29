@@ -1119,13 +1119,13 @@ static NSString *defaultProjectToken;
 
 - (void)setCurrentRadio
 {
-    dispatch_async(self.serialQueue, ^{
+/*    dispatch_async(self.serialQueue, ^{
         NSMutableDictionary *properties = [self.automaticProperties mutableCopy];
         if (properties) {
             properties[@"$radio"] = [self currentRadio];
             self.automaticProperties = [properties copy];
         }
-    });
+    });*/
 }
 
 - (NSString *)currentRadio
@@ -1172,8 +1172,8 @@ static NSString *defaultProjectToken;
     return @{
              @"$os": [device systemName],
              @"$os_version": [device systemVersion],
-             @"$screen_height": @((NSInteger)size.height),
-             @"$screen_width": @((NSInteger)size.width),
+//             @"$screen_height": @((NSInteger)size.height),
+//             @"$screen_width": @((NSInteger)size.width),
              };
 #endif
 }
@@ -1188,14 +1188,14 @@ static NSString *defaultProjectToken;
     [p setValue:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] forKey:@"$app_release"];
     [p setValue:[[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"] forKey:@"$app_build_number"];
     [p setValue:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] forKey:@"$app_version_string"];
-    [p setValue:[self IFA] forKey:@"$ios_ifa"];
+//    [p setValue:[self IFA] forKey:@"$ios_ifa"];
 
-#if !MIXPANEL_NO_REACHABILITY_SUPPORT
+/*#if !MIXPANEL_NO_REACHABILITY_SUPPORT
     if (![Mixpanel isAppExtension]) {
         CTCarrier *carrier = [self.telephonyInfo subscriberCellularProvider];
         [p setValue:carrier.carrierName forKey:@"$carrier"];
     }
-#endif
+#endif*/
 
     [p addEntriesFromDictionary:@{
                                   @"mp_lib": @"iphone",
